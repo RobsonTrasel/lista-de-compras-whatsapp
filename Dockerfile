@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 
 # Instalar dependências de produção
-RUN npm ci --only=production
+RUN npm ci
 
 # Copiar código fonte
 COPY . .
@@ -36,4 +36,4 @@ ENV PORT=40000
 EXPOSE 40000
 
 # Rodar migrações do Prisma antes de iniciar o servidor
-CMD ["node dist/index.js"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node dist/index.js"]
