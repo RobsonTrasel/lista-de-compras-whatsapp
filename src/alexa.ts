@@ -30,5 +30,6 @@ const formatShoppingList = async (): Promise<string> => {
         orderBy: { createdAt: "asc" },
     });
 
-    return `🛒 *LISTA DE COMPRAS PARA O PRÓXIMO MÊS:*\n\n` + items.map(i => `- ${i.item}`).join("\n");
+    return `🛒 *LISTA DE COMPRAS PARA O PRÓXIMO MÊS:*\n\n` + items.map((i: { item: string }) => `- ${i.item}`).join("\n");
+
 };
