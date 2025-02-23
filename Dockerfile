@@ -36,4 +36,4 @@ ENV PORT=40000
 EXPOSE 40000
 
 # Rodar migrações do Prisma antes de iniciar o servidor
-CMD ["sh", "-c", "node dist/index.js"]
+CMD ["node dist/index.js"]
